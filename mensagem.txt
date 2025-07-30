@@ -1,0 +1,1 @@
+Mensagem de texto para ser lida.
