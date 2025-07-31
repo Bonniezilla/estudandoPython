@@ -1,16 +1,17 @@
-import random;
-import string;
+from seguranca import geradorSenha as gerarSenha;
 
-def gerarSenha(tamanho):
-    chars = string.ascii_letters + string.digits + string.punctuation; 
-    senha = "".join(random.choice(chars) for _ in range(tamanho));
-    
-    return senha;
+from seguranca import validarSenha as validador;
 
-while True: 
-    inputTamanho = int(input("Digite um tamanho de senha: "));
-    
-    if inputTamanho != int:
-        break;
+tamanho = int(input("Digite um tamanho de senha: "));
 
-print("Senha gerada:", gerarSenha(inputTamanho));
+
+senha = gerarSenha(tamanho);
+statusSenha = validador(senha);
+print("Sua senha é:", senha);
+
+if statusSenha == True:
+    print("Esta senha é válida");
+
+else:
+    print("Esta senha é inválida");
+
